@@ -42,17 +42,28 @@ public class PlayerVisual : MonoBehaviour
             animator.SetFloat(YInput_ANIM_PARAM, lastDirection.y);
         }
     }
-
+    
     private void AdjustPlayerFacingDirection()
     {
-        Vector3 mousePos = GameInput.Instance.GetMousePosition();
-        Vector3 playerPosition = Player.Instance.GetPlayerScreenPosition();
+        Vector2 movementInput = GameInput.Instance.GetInputVector();
 
-        if (mousePos.x < playerPosition.x)
+        if (movementInput.x < 0)
         {
             spriteRenderer.flipX = true;
         }
         else spriteRenderer.flipX = false;
     }
+
+    // private void AdjustPlayerFacingDirection()
+    // {
+    //     Vector3 mousePos = GameInput.Instance.GetMousePosition();
+    //     Vector3 playerPosition = Player.Instance.GetPlayerScreenPosition();
+
+    //     if (mousePos.x < playerPosition.x)
+    //     {
+    //         spriteRenderer.flipX = true;
+    //     }
+    //     else spriteRenderer.flipX = false;
+    // }
     
 }

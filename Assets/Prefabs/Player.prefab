@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc489b6b0634c04fb346f5f4503570e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Banana
-  movingSpeed: 5
+  movingSpeed: 3
 --- !u!1 &5877374443776742547
 GameObject:
   m_ObjectHideFlags: 0
