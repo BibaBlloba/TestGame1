@@ -1387,14 +1387,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3455342371431670386, guid: 2d066b5f835650d4db58ea20d3256d0b, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5115316561323041296, guid: 2d066b5f835650d4db58ea20d3256d0b, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 7551714105352549082, guid: 2d066b5f835650d4db58ea20d3256d0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.644
