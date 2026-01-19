@@ -10,12 +10,18 @@ public class Player : MonoBehaviour
     private float minMovingSpeed = 0.1f;
     private bool isRunning = false;
     [SerializeField] private float movingSpeed;
+    Vector2 inputVector;
     
     private void Awake()
     {
         Instance = this;
         
         _rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        inputVector = GameInput.Instance.GetInputVector();
     }
     
     private void FixedUpdate()
@@ -25,12 +31,11 @@ public class Player : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 inputVector = GameInput.Instance.GetInputVector();
         // inputVector = inputVector.normalized;
         // Debug.DrawRay(transform.position, inputVector, Color.red);
         // Debug.Log(inputVector);
+        
         _rb.MovePosition(_rb.position + inputVector * (Time.fixedDeltaTime * movingSpeed));
-
         if (Mathf.Abs(inputVector.x) > minMovingSpeed || Mathf.Abs(inputVector.x) > minMovingSpeed)
         {
             isRunning = true;
