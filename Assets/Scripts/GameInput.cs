@@ -40,10 +40,13 @@ public class GameInput : MonoBehaviour
         return mousePos;
     }
 
-    public Vector3 GetMouseWorldPosition(Camera camera = null)
+    public Vector2 GetWorldMousePosition(Camera camera = null)
     {
         camera ??= Camera.main;
-        return camera.ScreenToWorldPoint(GetMousePosition());
+        Vector3 mousePosition = camera.ScreenToWorldPoint(GetMousePosition());
+        mousePosition.z = 0;
+        
+        return mousePosition;
     }
 
 }
