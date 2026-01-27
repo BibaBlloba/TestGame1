@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private bool isRunning = false;
     [SerializeField] private float movingSpeed;
     Vector2 inputVector;
-    
+
     private void Awake()
     {
         Instance = this;
@@ -19,6 +19,16 @@ public class Player : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        GameInput.Instance.OnPlayerAttack += Player_OnPlayerAttack;
+    }
+
+    private void Player_OnPlayerAttack(object sender, System.EventArgs e)
+    {
+        ActiveWeapon.Instance.GetActiveWeapon().Attack();
+    }
+    
     private void Update()
     {
         inputVector = GameInput.Instance.GetInputVector();

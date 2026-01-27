@@ -5,6 +5,7 @@ public class PlayerVisual : MonoBehaviour
     private Animator animator;
     private SpriteRenderer spriteRenderer;
     private Vector2 lastDirection;
+    private bool lastFlipXState;
     
     private const string IS_RUNNING_ANIM_PARAM = "IsRunning";
     private const string XInput_ANIM_PARAM = "XInput";
@@ -30,6 +31,7 @@ public class PlayerVisual : MonoBehaviour
         if (movementInput != Vector2.zero)
         {
             lastDirection = movementInput;
+            lastFlipXState = movementInput.x < 0;
             
             animator.SetBool(IS_RUNNING_ANIM_PARAM, true);
             animator.SetFloat(XInput_ANIM_PARAM, movementInput.x);
@@ -47,11 +49,10 @@ public class PlayerVisual : MonoBehaviour
     {
         Vector2 movementInput = GameInput.Instance.GetInputVector();
 
-        if (movementInput.x < 0)
+        if (movementInput.x != 0)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = movementInput.x < 0;
         }
-        else spriteRenderer.flipX = false;
     }
 
     // private void AdjustPlayerFacingDirection()
