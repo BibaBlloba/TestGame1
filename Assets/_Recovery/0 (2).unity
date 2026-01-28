@@ -417,7 +417,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7711512610382165076, guid: 6742274d49afcd1449105ca934c18bd5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1381323963}
   m_SourcePrefab: {fileID: 100100000, guid: 6742274d49afcd1449105ca934c18bd5, type: 3}
 --- !u!1001 &276874786
 PrefabInstance:
@@ -1278,6 +1281,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1381323957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7711512610382165076, guid: 6742274d49afcd1449105ca934c18bd5, type: 3}
+  m_PrefabInstance: {fileID: 246941622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1381323963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381323957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa393837838762c4b651bcf64a08b97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyEntity
+  maxHealth: 5
 --- !u!4 &1754464930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8198075827586205414, guid: 6f6387bc62a8fab41851a7889ed3143d, type: 3}

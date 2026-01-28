@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 
+[SelectionBase]
 public class Player : MonoBehaviour
 {
     public static Player Instance { get; private set; }

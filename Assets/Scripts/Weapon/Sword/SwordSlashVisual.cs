@@ -22,4 +22,5 @@ public class SwordSlashVisual : MonoBehaviour
    {
       animator.SetTrigger(ATTACK);
    }
+
 }
