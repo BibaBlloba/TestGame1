@@ -1,9 +1,18 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(EnemyEntity))]
+[RequireComponent(typeof(EnemyAI))]
 public class EnemyVisual : MonoBehaviour
 {
+    private const string ATTACK_TRIGGER = "Attack";
+    
+    [SerializeField] private EnemyEntity _enemyEntity;
+    [SerializeField] private EnemyAI _enemyAI;
+    
     private Animator animator;
     private NavMeshAgent agent;
     private Vector2 lastDirection;
@@ -37,6 +46,32 @@ public class EnemyVisual : MonoBehaviour
             animator.SetFloat(XInput_ANIM_PARAM, lastDirection.x);
             animator.SetFloat(YInput_ANIM_PARAM, lastDirection.y);
         }
+    }
+    
+    private void Start()
+    {
+        _enemyAI.OnEnemyAttack += _enemyAI_OnEnemyAttack;
+    }
+
+    private void OnDestroy()
+    {
+        _enemyAI.OnEnemyAttack -= _enemyAI_OnEnemyAttack;
+    }
+    
+    private void _enemyAI_OnEnemyAttack(object sender, EventArgs e)
+    {
+        Debug.Log("ataka");
+        animator.SetTrigger(ATTACK_TRIGGER);
+    }
+    
+    public void AttackColliderTurnOff()
+    {
+        _enemyEntity.AttackColliderTurnOff();
+    }
+    
+    public void AttackColliderTurnOn()
+    {
+        _enemyEntity.AttackColliderTurnOn();
     }
     
 }

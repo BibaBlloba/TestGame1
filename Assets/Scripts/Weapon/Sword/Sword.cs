@@ -25,6 +25,11 @@ public class Sword : MonoBehaviour
         OnSwordSwing?.Invoke(this, EventArgs.Empty);
     }
 
+    public void AttackColliderTurnOff()
+    {
+        _collider.enabled = false;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // if (collision.tag == "Enemy")
@@ -38,11 +43,6 @@ public class Sword : MonoBehaviour
         }
     }
 
-    public void AttackColliderTurnOff()
-    {
-        _collider.enabled = false;
-    }
-    
     private void AttackColliderTurnOn()
     {
         _collider.enabled = true;
